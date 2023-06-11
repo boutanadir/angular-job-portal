@@ -1,23 +1,34 @@
-
 <button mat-button (click)="this.router.navigate(['/sign-up'])">Sign UP</button>
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<mat-card>
+  <mat-card-content>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="sign-up-card">
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput type="text" formControlName="email">
+        <mat-error *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+          <span *ngIf="loginForm.get('email')?.hasError('required')">Email is required</span>
+          <span *ngIf="loginForm.get('email')?.hasError('email')">Invalid email</span>
+        </mat-error>
+      </mat-form-field>
 
-    <label >Email: </label>
-    <input type="text" formControlName="email">
-    <mat-error *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
-        <span *ngIf="loginForm.get('email')?.hasError('required')">Email is required</span>
-        <span *ngIf="loginForm.get('email')?.hasError('email')">Invalid email</span>
-      </mat-error> 
-    <label >Password: </label>
-    <input type="text" formControlName="password" required minlength="5">
-    <mat-error *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
-        <span *ngIf="loginForm.get('password')?.hasError('required')">Password is required</span>
-        <span *ngIf="loginForm.get('password')?.hasError('minlength')">Password should be at least 5 characters long</span>
-      </mat-error>
-      <mat-label>Retype Password</mat-label>
-          <input matInput formControlName="confirmPassword" type="password">
-          <span *ngIf="loginForm.get('confirmPassword')?.value !== loginForm.get('password')?.value  && loginForm.get('confirmPassword')?.touched">Passwords do not match</span>
-          
-    <button type="submit" [disabled]="!loginForm.valid">Submit</button>
-  </form>
- 
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" required minlength="5">
+        <mat-error *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+          <span *ngIf="loginForm.get('password')?.hasError('required')">Password is required</span>
+          <span *ngIf="loginForm.get('password')?.hasError('minlength')">Password should be at least 5 characters long</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Retype Password</mat-label>
+        <input matInput type="password" formControlName="confirmPassword">
+        <mat-error *ngIf="loginForm.get('confirmPassword')?.value !== loginForm.get('password')?.value && loginForm.get('confirmPassword')?.touched">
+          Passwords do not match
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Submit</button>
+    </form>
+  </mat-card-content>
+</mat-card>
