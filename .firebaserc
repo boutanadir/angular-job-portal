@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "job-portal-4c1dc": {
+      "hosting": {
+        "angular-job-portal": [
+          "job-portal-4c1dc"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "job-portal-4c1dc"
+  }
+}

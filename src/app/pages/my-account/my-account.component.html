@@ -1,0 +1,5 @@
+<h1>My Profile</h1>
+<button mat-raised-button color="accent" mat-button (click)="this.router.navigate(['/profile-edit'])">Edit My WProfile</button>
+<app-profile-card></app-profile-card>
+<h1>My Jobs</h1>
+<app-jobs  [jobEdit]="true"></app-jobs>

@@ -1,0 +1,5 @@
+<div class="jobs-container">
+  <div *ngFor="let job of jobs">
+      <app-job-card (click)="this.router.navigate(['/jobs/'+job.id]);" [job]="job" [jobEdit]="jobEdit"></app-job-card>
+  </div>
+</div>

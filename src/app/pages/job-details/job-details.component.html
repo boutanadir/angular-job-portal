@@ -1,0 +1,4 @@
+<div *ngIf="this.job">
+<button mat-raised-button color="accent" *ngIf="jobEdit==true" mat-button (click)="this.router.navigate(['/jobs/edit/'+this.job.id])">Edit</button>
+<app-job-card  [job]="job"></app-job-card>
+</div>

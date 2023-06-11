@@ -1,0 +1,9 @@
+<mat-toolbar>
+    <span>Job Portal</span>
+    <button mat-button (click)="this.router.navigate(['/home'])">home</button>
+    <button mat-button (click)="this.router.navigate(['/myAccount'])" *ngIf="this.jobService.currentUser.uid!==''">My Account</button>
+    <button mat-button (click)="this.router.navigate(['/sign-in'])" *ngIf="this.jobService.currentUser.uid===''">Sign In</button>
+    <button mat-button (click)="this.router.navigate(['/jobs/edit/new'])" *ngIf="this.jobService.currentUser.uid!==''">add-job</button>
+    <button mat-button (click)="signOut();" *ngIf="this.jobService.currentUser.uid!==''">Sign Out</button>
+  </mat-toolbar>
+<router-outlet></router-outlet>

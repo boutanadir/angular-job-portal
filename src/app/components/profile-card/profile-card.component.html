@@ -1,0 +1,12 @@
+<mat-card class="profile-card" *ngIf="this.jobService.currentUser.profile">
+    <mat-card-header>
+        <mat-card-title>{{this.jobService.currentUser.profile.firstName}}</mat-card-title>
+        <mat-card-title>{{this.jobService.currentUser.profile.lastName}}</mat-card-title>
+      <mat-card-subtitle>{{this.jobService.currentUser.profile.lastName}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>{{this.jobService.currentUser.profile.email}}</p>
+        <p>{{this.jobService.currentUser.profile.phone}}</p>
+        <p>{{this.jobService.currentUser.profile.address}}</p>
+    </mat-card-content>
+</mat-card>
